@@ -1,0 +1,585 @@
+/* Global Section Styles */
+section {
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Loader */
+.loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.jp-logo {
+    display: block;
+    font-size: 4rem;
+    letter-spacing: 0.5rem;
+    opacity: 0;
+    margin-bottom: 1rem;
+}
+
+.en-logo {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 1rem;
+    opacity: 0;
+}
+
+.loader-line {
+    width: 0;
+    height: 1px;
+    background: var(--text-color);
+    margin: 2rem auto;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+}
+
+.hero-sticky {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-bg-video {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.hero-bg-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.hero-nav {
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    z-index: 10;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    letter-spacing: 0.8rem;
+    font-weight: 300;
+}
+
+.hero-nav-list {
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+}
+
+.hero-nav-list a {
+    font-size: 0.95rem;
+    letter-spacing: 0.35rem;
+    text-transform: uppercase;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hero-nav-list a:hover {
+    opacity: 1;
+}
+
+.hero-header {
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    padding: 0 10%;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 6vw, 8rem);
+    letter-spacing: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.jp-title {
+    font-size: 0.3em;
+    letter-spacing: 1rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+.hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    opacity: 0.6;
+}
+
+/* Philosophy Section */
+.philosophy {
+    padding: 2vh 0;
+    min-height: 80vh;
+    overflow: hidden;
+}
+
+.calligraphy-side {
+    position: absolute;
+    right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    writing-mode: vertical-rl;
+    font-size: 5rem;
+    opacity: 0.15;
+    letter-spacing: 2rem;
+    pointer-events: none;
+}
+
+.philosophy-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+}
+
+.philosophy-headline {
+    font-size: 4rem;
+    letter-spacing: 0.3rem;
+    line-height: 0.9;
+}
+
+.philosophy-content {
+    max-width: 500px;
+}
+
+.philosophy-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+}
+
+/* Omakase Section (Horizontal) */
+.omakase {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.omakase-wrapper {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+}
+
+.course-panel {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8vh 10vw;
+}
+
+.panel-inner {
+    display: flex;
+    align-items: center;
+    gap: 4vw;
+    width: 100%;
+    height: 100%;
+}
+
+.course-image {
+    width: 60%;
+    height: 80%;
+    object-fit: cover;
+    clip-path: inset(0 0 0 0);
+    transition: transform 0.1s ease-out;
+}
+
+.course-info {
+    max-width: 400px;
+}
+
+.course-jp {
+    font-size: 2rem;
+    opacity: 0.6;
+}
+
+.course-name {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.course-desc {
+    font-size: 0.9rem;
+    opacity: 0.5;
+    line-height: 1.6;
+}
+
+/* Chef Section */
+.chef {
+    padding: 2vh 0;
+    min-height: 100vh;
+}
+
+.grid-no-margin {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    align-items: center;
+    gap: 0;
+}
+
+.chef-image-wrap {
+    height: 70vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.chef-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chef-bubble {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    z-index: 100;
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    left: 0;
+    top: 0;
+}
+
+.chef-bubble.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.chef-bubble span {
+    color: var(--text-color);
+    font-size: 0.75rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    line-height: 1.2;
+}
+
+.chef-details {
+    padding: 0 5vw;
+}
+
+.chef-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.chef-text {
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* Space Section */
+.space {
+    height: 150vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.space-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.space-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.parallax-wrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.parallax-img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parallax-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.layer-1 {
+    width: 80vw;
+    height: 80vh;
+    z-index: 2;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+    position: relative;
+    object-position: center;
+    /* keep center focus */
+}
+
+.parallax-img-container {
+    position: relative;
+    width: 80vw;
+    height: 80vh;
+    overflow: hidden;
+    /* Prevent hotspot from overflowing the image bounds */
+}
+
+.chef-hotspot {
+    position: absolute;
+    width: 20%;
+    height: 48%;
+    left: 56.5%;
+    /* Corrected position based on source image */
+    top: 52%;
+    /* Corrected position based on source image */
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: auto;
+    /* border: 1px solid rgba(255,0,0,0.5); /* uncomment for debugging hit area */
+}
+
+.space-overlay-text {
+    position: absolute;
+    bottom: 15vh;
+    right: 5vw;
+    text-align: right;
+}
+
+.calligraphy-float {
+    display: block;
+    font-size: 8rem;
+    opacity: 0.15;
+    margin-bottom: -2rem;
+}
+
+.space-title {
+    font-size: 3rem;
+    letter-spacing: 0.5rem;
+}
+
+/* Reservation Section */
+.reservation {
+    height: 100vh;
+    text-align: center;
+}
+
+.reservation-line {
+    font-size: 5vw;
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.request-btn {
+    margin-top: 4rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.btn-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-color);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.request-btn:hover .btn-line {
+    width: 100%;
+}
+
+/* Footer */
+.footer {
+    padding: 6vh 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.flex-justify {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2rem;
+    opacity: 0.4;
+    margin-bottom: 1rem;
+}
+
+.footer-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    margin-top: 0.5rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+    opacity: 1;
+}
+
+/* Chef Page Overlay */
+.chef-page-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-color);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.close-chef-page {
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.4rem;
+    cursor: pointer;
+    z-index: 1010;
+    padding: 1rem;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.close-chef-page:hover {
+    opacity: 1;
+}
+
+.chef-page-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    height: 100%;
+    width: 100%;
+}
+
+.chef-portrait-large {
+    height: 100%;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.chef-portrait-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.chef-story {
+    padding: 20vh 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chef-subtitle {
+    font-size: 0.7rem;
+    letter-spacing: 0.5rem;
+    opacity: 0.4;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.chef-name {
+    font-size: clamp(3rem, 5vw, 6rem);
+    letter-spacing: 1.5rem;
+    margin-bottom: 4rem;
+    font-weight: 300;
+}
+
+.chef-story-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .philosophy-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-no-margin {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-inner {
+        flex-direction: column;
+    }
+}

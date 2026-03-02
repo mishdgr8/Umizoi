@@ -1,0 +1,77 @@
+:root {
+    --bg-color: #241a16;
+    /* Deep Charcoal/Brown */
+    --text-color: #edede4;
+    /* Off-white/Beige */
+    --accent-rust: #7f3828;
+    /* Rust */
+    --accent-taupe: #b9ada5;
+    /* Muted Taupe */
+    --silver: #c0c0c0;
+
+    --font-heading: 'Manrope', sans-serif;
+    --font-body: 'Manrope', sans-serif;
+
+    --transition-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-med: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-weight: 200;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+/* Custom Cursor */
+#custom-cursor {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: var(--text-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+#custom-cursor.hover {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--text-color);
+}
+
+/* Texture Overlays removed */
+
+/* Lenis */
+html.lenis {
+    height: auto;
+}
+
+.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+    pointer-events: none;
+}

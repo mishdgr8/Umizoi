@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMIZOI 海沿い — Michelin 2-Star Omakase</title>
+    <meta name="description"
+        content="Where the sea chooses the course. A Michelin 2-star, reservation-only Japanese seafood experience.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@200;300;400&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Grain Overlay -->
+    <div class="grain-overlay"></div>
+    <div class="vignette"></div>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <span class="jp-logo">海沿い</span>
+            <div class="en-logo-container">
+                <span class="en-logo">UMIZOI</span>
+            </div>
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- GSAP Smooth Wrapper -->
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- Hero Section -->
+            <section class="hero" id="hero">
+                <div class="hero-bg">
+                    <!-- High quality video or subtle ocean motion placeholder -->
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source
+                            src="assets/Scene/AQOZrp6NRBAZ6H7S7HSEOuGS72z65jMiFLs3jkat7A-KxrY6L5ENMVTCFRaDmdwj5gVPj90GFbe2UHhIJ5Ka40rb0SiI7o-QWRDVJ-c.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+                <div class="hero-header">
+                    <h1 class="hero-title">UMIZOI <span class="jp-title">海沿い</span></h1>
+                    <p class="hero-subtitle">Twelve seats. One tide. No menu.</p>
+                </div>
+            </section>
+
+            <!-- Philosophy Section -->
+            <section class="philosophy" id="philosophy">
+                <span class="calligraphy-side">伝統と革新</span>
+                <div class="container">
+                    <div class="philosophy-layout">
+                        <h2 class="philosophy-headline">THE SEA DECIDES.</h2>
+                        <div class="philosophy-content">
+                            <p class="philosophy-text">
+                                UMIZOI was not conceived from a business plan. It was shaped by tide charts, morning
+                                auctions, and the discipline of Edomae tradition.
+                            </p>
+                            <p class="philosophy-text">
+                                Each day begins before light — not in a kitchen, but at the docks. The sea decides what
+                                will be served.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Omakase Horizontal Scroll -->
+            <section class="omakase" id="omakase">
+                <div class="omakase-wrapper">
+                    <div class="course-panel">
+                        <div class="panel-inner">
+                            <img src="assets/Food/589908876_18542390116031784_4422588814190806625_n.jpg"
+                                alt="Hokkaido Uni" class="course-image">
+                            <div class="course-info">
+                                <span class="course-jp">雲丹</span>
+                                <h3 class="course-name">Hokkaido Uni</h3>
+                                <p class="course-desc">Layered like silk, harvested from the cold northern depths.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-panel">
+                        <div class="panel-inner">
+                            <img src="assets/Food/15c0143c39856737bcaf0e1588058b2e.jpg" alt="Aged Tuna"
+                                class="course-image">
+                            <div class="course-info">
+                                <span class="course-jp">熟成鮪</span>
+                                <h3 class="course-name">Sokei-zuke Tuna</h3>
+                                <p class="course-desc">Aged for seven days in soy infusion, unlocking deep umami notes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-panel">
+                        <div class="panel-inner">
+                            <img src="assets/Food/3bc1deb1d0b3b0ccba574f8cf973cd60.jpg" alt="Live Scallop"
+                                class="course-image">
+                            <div class="course-info">
+                                <span class="course-jp">帆立</span>
+                                <h3 class="course-name">Hokkaido Hotate</h3>
+                                <p class="course-desc">Clean, sweet, and firm. A crystalline expression of the north.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chef Section -->
+            <section class="chef" id="chef">
+                <div class="container grid-no-margin">
+                    <div class="chef-image-wrap">
+                        <img src="assets/Personnel/b56b48da1675160e921ace8b2c97b29a.jpg" alt="Head Chef"
+                            class="chef-image">
+                    </div>
+                    <div class="chef-details">
+                        <h2 class="chef-title">THE CRAFT</h2>
+                        <p class="chef-text">"Remove everything unnecessary."</p>
+                        <p class="chef-bio">Precision is not intensity. It is restraint. Twenty-three years behind the
+                            counter, shaped by the silence of the docks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Space Section -->
+            <section class="space" id="space">
+                <div class="space-bg">
+                    <video autoplay muted loop playsinline class="space-video">
+                        <source
+                            src="assets/Scene/AQMwXuM0r9XsAs6qKP2AtKE93Z7Avx1yGyOTfkWF4l_W8pf0x4U5wqcYSRU9gfG2ebfwmPP59vf65zwzC7WlKOzVkq95aH3t1GQfAU0.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+                <div class="parallax-wrap">
+                    <img src="assets/Scene/640262478_18566605774058383_2995011282770213052_n.jpg" alt="Kitchen Prep"
+                        class="parallax-img layer-1">
+                    <div class="space-overlay-text">
+                        <span class="calligraphy-float">静寂</span>
+                        <h2 class="space-title">ARCHITECTURAL SILENCE</h2>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reservation Section -->
+            <section class="reservation" id="reservation">
+                <div class="container centered">
+                    <div class="reservation-lines">
+                        <h2 class="reservation-line">RESERVATION ONLY.</h2>
+                        <h3 class="reservation-line">12 SEATS.</h3>
+                        <p class="reservation-line">OMAKASE BEGINS AT 7PM.</p>
+                    </div>
+                    <a href="#" class="request-btn">
+                        <span class="btn-text">REQUEST A SEAT</span>
+                        <div class="btn-line"></div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container flex-justify">
+                    <div class="footer-col">
+                        <span class="footer-label">ADDRESS</span>
+                        <p>Toyosu Waterfront, Tokyo</p>
+                    </div>
+                    <div class="footer-col">
+                        <span class="footer-label">EXPERIENCE</span>
+                        <p>Mon — Sat / 19:00 — 22:30</p>
+                    </div>
+                    <div class="footer-col">
+                        <a href="#" class="footer-link">INSTAGRAM</a>
+                        <a href="#" class="footer-link">CANCELLATION POLICY</a>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- GSAP via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Note: ScrollSmoother and SplitText are premium. Using placeholders if user hasn't provided license -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
