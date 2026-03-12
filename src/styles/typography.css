@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.container {
+    padding: 0 8vw;
+    width: 100%;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.jp-logo,
+.course-jp,
+.calligraphy-side,
+.calligraphy-float {
+    font-family: var(--font-heading);
+    font-weight: 300;
+}

@@ -1,0 +1,261 @@
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.hero-sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-bg-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-image-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75vw;
+    height: 80vh;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #111;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease-in-out;
+}
+
+.hero-clicked-zoom {
+    transform: translate(-50%, -50%) scale(1.15) !important;
+}
+
+.hero-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.04);
+    /* Room for parallax */
+    transition: transform 0.1s ease-out, filter 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    will-change: transform, filter;
+}
+
+.hero-image-dimmed {
+    filter: brightness(0.6) contrast(1.1);
+}
+
+.hero-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    mix-blend-mode: difference;
+    color: white;
+    transition: opacity 0.4s ease;
+}
+
+.nav-hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.hero-nav .logo {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    font-weight: 300;
+}
+
+.hero-nav-list {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.hero-nav-list a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+/* INTERACTIVE HOTSPOTS */
+.hero-interactive-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    /* Let empty space pass clicks */
+}
+
+.hero-hotspot {
+    position: absolute;
+    pointer-events: auto;
+    /* Catch clicks */
+    cursor: pointer;
+    /* Soft glow */
+    background: radial-gradient(circle, rgba(198, 166, 100, 0.08) 0%, rgba(198, 166, 100, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease-out, transform 0.1s ease-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    will-change: transform, opacity;
+}
+
+.hero-hotspot:hover,
+.hero-hotspot.pulse-active {
+    opacity: 1;
+}
+
+/* POSITIONS */
+.hotspot-chef {
+    top: 15%;
+    left: 50%;
+    width: 18vw;
+    height: 50vh;
+    border-radius: 50% 50% 0 0;
+}
+
+.hotspot-cabinet {
+    top: 10%;
+    left: 70%;
+    width: 25vw;
+    height: 70vh;
+    border-radius: 20px;
+}
+
+.hotspot-plates {
+    top: 55%;
+    left: 20%;
+    width: 40vw;
+    height: 35vh;
+    border-radius: 50%;
+    transform: rotate(-15deg);
+}
+
+/* BUBBLES */
+.hero-bubble {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.85) translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+
+    /* Glassmorphism */
+    background: rgba(255, 255, 240, 0.12);
+    /* translucent ivory */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(198, 166, 100, 0.4);
+    /* thin gold line */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+
+    padding: 14px 28px;
+    border-radius: 40px;
+
+    font-family: "Playfair Display", "Canela", serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    color: #fff;
+    text-transform: uppercase;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    /* Cinematic Timing */
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+    white-space: nowrap;
+}
+
+.hero-hotspot:hover .hero-bubble,
+.hero-hotspot.active .hero-bubble {
+    opacity: 1;
+    /* Expands to 1, lifts up slightly */
+    transform: translate(-50%, -100%) scale(1) translateY(-8px);
+}
+
+.bubble-arrow {
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid rgba(198, 166, 100, 0.8);
+    border-bottom: 1px solid rgba(198, 166, 100, 0.8);
+    transform: rotate(45deg);
+    margin-top: 2px;
+    opacity: 0.9;
+}
+
+/* AUDIO TOGGLE */
+.hero-audio-toggle {
+    position: absolute;
+    bottom: 2rem;
+    right: 4rem;
+    z-index: 20;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.hero-audio-toggle:hover {
+    color: white;
+}
+
+/* MOBILE ADAPTATION */
+@media (max-width: 768px) {
+    .hero-hotspot {
+        animation: mobilePulse 6s infinite ease-in-out;
+    }
+
+    @keyframes mobilePulse {
+
+        0%,
+        100% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0.6;
+        }
+    }
+}

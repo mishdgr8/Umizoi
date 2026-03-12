@@ -1,0 +1,290 @@
+.editorial-page {
+    background-color: #eef2e6;
+    /* Soft green-cream from reference */
+    color: #1a1a1a;
+    min-height: 100vh;
+    font-family: var(--font-body);
+}
+
+.editorial-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    height: 80px;
+    background-color: #1a1a1a;
+    color: #f6f7f2;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.editorial-nav .nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.editorial-nav a {
+    color: #f6f7f2;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.editorial-nav a:hover {
+    opacity: 0.7;
+}
+
+.editorial-nav .brand {
+    font-family: "Playfair Display", "Canela", serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    font-weight: 300;
+    text-transform: none;
+    font-style: italic;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.editorial-split-layout {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    background-color: #eef2e6;
+}
+
+.editorial-left {
+    width: 40vw;
+    height: calc(100vh - 80px);
+    position: sticky;
+    top: 80px;
+}
+
+.editorial-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.editorial-right {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.editorial-right-header {
+    padding: 4rem 4rem 3rem 4rem;
+}
+
+.editorial-right-header h1 {
+    font-size: 4rem;
+    font-family: "Playfair Display", "Canela", serif;
+    color: #111;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.editorial-right-header p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333;
+    opacity: 0.8;
+    max-width: 500px;
+}
+
+.menu-section-divider {
+    background-color: #1a1a1a;
+    color: #f6f7f2;
+    padding: 1rem 4rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.editorial-row {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    min-height: 35vh;
+    align-items: stretch;
+}
+
+.editorial-row-content {
+    flex: 1;
+    display: flex;
+    padding: 4rem;
+}
+
+.editorial-row-date {
+    width: 120px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-family: var(--font-body);
+    padding-top: 0.7rem;
+}
+
+.editorial-row-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.editorial-row-title {
+    font-size: 2.5rem;
+    font-family: "Playfair Display", "Canela", serif;
+    color: #111;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.editorial-row-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 3rem;
+    max-width: 380px;
+}
+
+.editorial-row-link {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    color: #637758;
+    border-bottom: 1px solid #637758;
+    padding-bottom: 4px;
+    display: inline-block;
+    width: fit-content;
+    transition: opacity 0.3s ease;
+}
+
+.editorial-row-link:hover {
+    opacity: 0.6;
+}
+
+.editorial-row-image {
+    width: 18vw;
+    flex-shrink: 0;
+}
+
+.editorial-row-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Specific styling for Reservation page form */
+.editorial-form-container {
+    padding: 0 4rem 4rem 4rem;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 500px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.form-group {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+    background: none;
+    border: none;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #111;
+    font-family: inherit;
+}
+
+.submit-btn {
+    background: #1a1a1a;
+    color: #f6f7f2;
+    border: none;
+    padding: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #333;
+}
+
+@media (max-width: 768px) {
+    .editorial-nav {
+        padding: 0 2rem;
+    }
+
+    .editorial-nav .nav-links,
+    .editorial-nav .nav-contact {
+        display: none;
+    }
+
+    .editorial-nav .brand {
+        position: static;
+        transform: none;
+    }
+
+    .editorial-split-layout {
+        flex-direction: column;
+    }
+
+    .editorial-left {
+        width: 100%;
+        height: 50vh;
+        position: static;
+    }
+
+    .editorial-right {
+        width: 100%;
+    }
+
+    .editorial-right-header {
+        padding: 2.5rem 2rem;
+    }
+
+    .editorial-row {
+        flex-direction: column;
+    }
+
+    .editorial-row-content {
+        padding: 2rem;
+        flex-direction: column;
+    }
+
+    .editorial-row-date {
+        margin-bottom: 1rem;
+    }
+
+    .editorial-row-image {
+        width: 100%;
+        height: 40vh;
+    }
+}
