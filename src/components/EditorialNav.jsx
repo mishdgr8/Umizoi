@@ -10,6 +10,7 @@ const EditorialNav = () => {
         <nav className={`editorial-nav ${isMenuOpen ? 'menu-open' : ''}`}>
             <div className={`nav-links ${isMenuOpen ? 'mobile-show' : ''}`}>
                 <Link to="/menu" onClick={() => setIsMenuOpen(false)}>Menu</Link>
+                <Link to="/gallery" onClick={() => setIsMenuOpen(false)}>Gallery</Link>
                 <Link to="/origin" onClick={() => setIsMenuOpen(false)}>Origin</Link>
                 <Link to="/history" onClick={() => setIsMenuOpen(false)}>Story</Link>
                 <Link to="/reservation" onClick={() => setIsMenuOpen(false)}>Reservation</Link>

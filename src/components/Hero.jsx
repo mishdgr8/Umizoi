@@ -34,6 +34,7 @@ const NavContent = ({ onToggleMenu, isMenuOpen }) => (
         <div className="logo">UMIZOI</div>
         <ul className={`hero-nav-list ${isMenuOpen ? 'mobile-show' : ''}`}>
             <li><Link to="/menu">Menu</Link></li>
+            <li><Link to="/gallery">Gallery</Link></li>
             <li><Link to="/origin">Origin</Link></li>
             <li><Link to="/history">Story</Link></li>
             <li><Link to="/reservation">Reservation</Link></li>
