@@ -162,6 +162,8 @@ const Hero = ({ onChefSelect, onOmakaseSelect, onCellarSelect }) => {
                             muted
                             playsInline
                             className="video-bg"
+                            fetchPriority="high"
+                            poster={getCloudinaryUrl('/assets/BG_iMG.webp', { width: 1920, quality: 'auto:eco' })}
                         >
                             <source
                                 src={getCloudinaryUrl('/assets/Scene/AQMwXuM0r9XsAs6qKP2AtKE93Z7Avx1yGyOTfkWF4l_W8pf0x4U5wqcYSRU9gfG2ebfwmPP59vf65zwzC7WlKOzVkq95aH3t1GQfAU0.mp4', { type: 'video' })}
@@ -173,7 +175,7 @@ const Hero = ({ onChefSelect, onOmakaseSelect, onCellarSelect }) => {
                     <div className={`hero-image-wrapper ${isTransitioning ? 'hero-dimmed hero-clicked-zoom' : ''}`} ref={wrapperRef}
                         style={isTransitioning ? { zIndex: 30 } : {}}>
                         <img
-                            src={getCloudinaryUrl('/assets/BG_iMG.webp', { width: 1920 })}
+                            src={getCloudinaryUrl('/assets/BG_iMG.webp', { width: 1920, quality: 'auto:eco' })}
                             alt="Hero"
                             className={`hero-image-bg ${isTransitioning ? 'hero-image-dimmed' : ''}`}
                             fetchpriority="high"

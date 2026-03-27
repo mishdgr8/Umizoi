@@ -11,10 +11,17 @@
   <meta name="author" content="Umizoi" />
   <meta name="keywords" content="Omakase, Japanese Cuisine, Fine Dining, Chef Shigeru Umizou, Sushi, Culinary Art" />
   <link rel="canonical" href="https://umizoi.pages.dev/" />
+
+  <!-- Preconnects & DNS Prefetch -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://res.cloudinary.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+
+  <!-- Critical Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
 
   <!-- Open Graph / Social Media -->
   <meta property="og:title" content="Umizoi | Cinematic Omakase Dining Experience" />
@@ -30,17 +37,14 @@
   <meta name="twitter:image"
     content="https://res.cloudinary.com/dzfrrcacc/image/fetch/f_auto,q_auto,w_1200,h_630,c_fill/https://umizoi.pages.dev/assets/BG_iMG.webp" />
 
-  <!-- Performance Optimizations -->
-  <link rel="preconnect" href="https://res.cloudinary.com" />
-  <link rel="dns-prefetch" href="https://res.cloudinary.com" />
-
-  <!-- Preload LCP Candidates (Hero Assets) -->
+  <!-- LCP Candidate Preloads -->
   <link rel="preload" as="image"
-    href="https://res.cloudinary.com/dzfrrcacc/image/fetch/f_auto,q_auto,w_1920,c_fill/https://umizoi.pages.dev/assets/BG_iMG.webp"
+    href="https://res.cloudinary.com/dzfrrcacc/image/fetch/f_auto,q_auto:eco,w_1920,c_fill/https://umizoi.pages.dev/assets/BG_iMG.webp"
     fetchpriority="high" />
+
   <link rel="preload" as="video"
     href="https://res.cloudinary.com/dzfrrcacc/video/fetch/f_auto,q_auto/https://umizoi.pages.dev/assets/Scene/AQMwXuM0r9XsAs6qKP2AtKE93Z7Avx1yGyOTfkWF4l_W8pf0x4U5wqcYSRU9gfG2ebfwmPP59vf65zwzC7WlKOzVkq95aH3t1GQfAU0.mp4"
-    type="video/mp4" />
+    type="video/mp4" fetchpriority="high" />
 </head>
 
 <body>

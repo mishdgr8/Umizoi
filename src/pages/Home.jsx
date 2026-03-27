@@ -27,7 +27,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             style={{ height: '100vh', padding: 0 }}
                         >
                             <img
-                                src={getCloudinaryUrl('/assets/Interior/interior_main.webp', { width: 1000 })}
+                                src={getCloudinaryUrl('/assets/Interior/interior_main.webp', { width: 800, quality: 'auto:eco' })}
                                 alt="Umizoi Interior"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 loading="lazy"
@@ -43,7 +43,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             style={{ height: '80vh', padding: 0 }}
                         >
                             <img
-                                src={getCloudinaryUrl('/assets/Personnel/b56b48da1675160e921ace8b2c97b29a.jpg', { width: 1000 })}
+                                src={getCloudinaryUrl('/assets/Personnel/b56b48da1675160e921ace8b2c97b29a.jpg', { width: 800, quality: 'auto:eco' })}
                                 alt="Our Team"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                 loading="lazy"
@@ -70,7 +70,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src={getCloudinaryUrl('/assets/Food/uni.webp', { width: 800 })} alt="Hokkaido Uni" loading="lazy" decoding="async" />
+                            <img src={getCloudinaryUrl('/assets/Food/uni.webp', { width: 600, quality: 'auto:eco' })} alt="Hokkaido Uni" loading="lazy" decoding="async" />
                         </div>
                     </div>
 
@@ -90,7 +90,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src={getCloudinaryUrl('/assets/Personnel/318543873_666951394918316_1128040539212648344_n.jpg', { width: 800 })} alt="Head Chef Shigeru" loading="lazy" decoding="async" />
+                            <img src={getCloudinaryUrl('/assets/Personnel/318543873_666951394918316_1128040539212648344_n.jpg', { width: 600, quality: 'auto:eco' })} alt="Head Chef Shigeru" loading="lazy" decoding="async" />
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src={getCloudinaryUrl('/assets/Interior/interior_main.webp', { width: 800 })} alt="Restaurant Interior" loading="lazy" decoding="async" />
+                            <img src={getCloudinaryUrl('/assets/Interior/interior_main.webp', { width: 600, quality: 'auto:eco' })} alt="Restaurant Interior" loading="lazy" decoding="async" />
                         </div>
                     </div>
 

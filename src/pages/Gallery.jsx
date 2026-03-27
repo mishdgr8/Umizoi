@@ -89,7 +89,7 @@ const Gallery = () => {
                                 border: '1px solid rgba(255,255,255,0.05)'
                             }}>
                                 <img
-                                    src={getCloudinaryUrl(item.img, { width: 800 })}
+                                    src={getCloudinaryUrl(item.img, { width: 800, quality: 'auto:eco' })}
                                     alt={item.title}
                                     loading="lazy"
                                     decoding="async"

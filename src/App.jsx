@@ -9,8 +9,7 @@ import Cursor from './components/Cursor';
 import MeetingChef from './components/MeetingChef';
 import EditorialNav from './components/EditorialNav';
 
-// Lazy load pages for smaller initial chunk size
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const Gallery = lazy(() => import('./pages/Gallery'));
 const Menu = lazy(() => import('./pages/Menu'));
 const Origin = lazy(() => import('./pages/Origin'));

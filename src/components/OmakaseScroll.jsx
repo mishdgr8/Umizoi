@@ -35,7 +35,13 @@ const OmakaseScroll = () => {
                 {courses.map((course, idx) => (
                     <div key={idx} className="course-panel">
                         <div className="panel-inner">
-                            <img src={getCloudinaryUrl(course.img)} alt={course.name} className="course-image" />
+                            <img
+                                src={getCloudinaryUrl(course.img, { width: 600, quality: 'auto:eco' })}
+                                alt={course.name}
+                                className="course-image"
+                                loading="lazy"
+                                decoding="async"
+                            />
                             <div className="course-info">
                                 <span className="course-jp">{course.jp}</span>
                                 <h3 className="course-name">{course.name}</h3>
