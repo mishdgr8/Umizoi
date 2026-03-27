@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { getCloudinaryUrl } from '../utils/cloudinary';
 import '../styles/components/Editorial.css';
 
@@ -14,9 +15,7 @@ const History = () => {
                     <div className="editorial-left-gallery">
                         {[
                             { src: '/assets/Personnel/318543873_666951394918316_1128040539212648344_n.jpg', alt: "Our main space" },
-                            { src: '/assets/Personnel/chef.webp', alt: "The Chef" },
-                            { src: '/assets/Personnel/61b34e07bd90857668a2b94d8efecc26.jpg', alt: "The Team" },
-                            { src: '/assets/Scene/581276579_18542423137058383_8395012481738148664_n.jpg', alt: "Interior space" },
+                            { src: '/assets/Personnel/chef.webp', alt: "The Chef" }
                         ].map((img, i) => (
                             <motion.div
                                 key={i}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { getCloudinaryUrl } from '../utils/cloudinary';
 import '../styles/components/Editorial.css';
 
@@ -16,8 +17,6 @@ const ReservationPage = () => {
                         {[
                             { src: '/assets/Scene/640914651_18567338425058383_4546137657352314648_n.jpg', alt: "Dining Room" },
                             { src: '/assets/Scene/589735771_18544975486058383_3211966786323243175_n.jpg', alt: "Interior Detail" },
-                            { src: '/assets/Scene/590805520_18544975456058383_43372525812490079_n.jpg', alt: "Service Area" },
-                            { src: '/assets/Scene/639544079_18567338626058383_971906583159803541_n.jpg', alt: "Ambience" },
                         ].map((img, i) => (
                             <motion.div
                                 key={i}

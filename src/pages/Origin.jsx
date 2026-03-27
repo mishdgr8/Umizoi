@@ -17,8 +17,6 @@ const Origin = () => {
                         {[
                             { src: '/assets/Scene/318437464_680876186963339_4782280235131555876_n.jpg', alt: "Our main space" },
                             { src: '/assets/Food/uni.webp', alt: "Our Hokkaido Uni" },
-                            { src: '/assets/Food/hotate.webp', alt: "Fresh Scallops" },
-                            { src: '/assets/Scene/587783447_18544975474058383_6044601999645993100_n.jpg', alt: "Atmosphere" },
                         ].map((img, i) => (
                             <motion.div
                                 key={i}
