@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 
 const MeetingChef = ({ isOpen, onClose }) => {
     const pageRef = useRef(null);
@@ -37,7 +38,7 @@ const MeetingChef = ({ isOpen, onClose }) => {
             <button className="close-chef-page" onClick={onClose}>CLOSE</button>
             <div className="chef-page-content">
                 <div className="chef-portrait-large">
-                    <img src="/assets/Personnel/chef.webp" alt="Chef Portrait" />
+                    <img src={getCloudinaryUrl('/assets/Personnel/chef.webp')} alt="Chef Portrait" />
                 </div>
                 <div className="chef-story">
                     <span className="chef-subtitle">BEYOND THE KNIFE</span>

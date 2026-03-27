@@ -4,7 +4,7 @@ const PROD_URL = import.meta.env.VITE_PROD_URL || 'https://umizoi.pages.dev'; //
 /**
  * Transforms a local asset path into a Cloudinary Fetch URL
  * @param {string} path - Local path starting with /assets
- * @param {object} options - Optional { width: number, height: number, crop: string }
+ * @param {object} options - Optional { type: 'image'|'video', width: number, height: number, crop: string }
  * @returns {string} - Cloudinary optimized URL
  */
 export const getCloudinaryUrl = (path, options = {}) => {
@@ -20,6 +20,7 @@ export const getCloudinaryUrl = (path, options = {}) => {
     const fullAssetUrl = `${baseUrl}${path.startsWith('/') ? '' : '/'}${path}`;
 
     const {
+        type = 'image',
         width,
         height,
         crop = 'fill',
@@ -32,5 +33,5 @@ export const getCloudinaryUrl = (path, options = {}) => {
     if (height) transformations += `,h_${height}`;
     if (width || height) transformations += `,c_${crop}`;
 
-    return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/fetch/${transformations}/${fullAssetUrl}`;
+    return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/${type}/fetch/${transformations}/${fullAssetUrl}`;
 };

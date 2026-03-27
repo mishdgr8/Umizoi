@@ -1,6 +1,7 @@
 import { useRef, useLayoutEffect, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useTextReveal } from '../hooks/useTextReveal';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 
 const InteriorSection = ({ onChefSelect }) => {
     const sectionRef = useRef(null);
@@ -62,7 +63,7 @@ const InteriorSection = ({ onChefSelect }) => {
             <div className="space-bg">
                 <video autoPlay muted loop playsInline className="space-video">
                     <source
-                        src="/assets/Scene/AQMwXuM0r9XsAs6qKP2AtKE93Z7Avx1yGyOTfkWF4l_W8pf0x4U5wqcYSRU9gfG2ebfwmPP59vf65zwzC7WlKOzVkq95aH3t1GQfAU0.mp4"
+                        src={getCloudinaryUrl('/assets/Scene/AQMwXuM0r9XsAs6qKP2AtKE93Z7Avx1yGyOTfkWF4l_W8pf0x4U5wqcYSRU9gfG2ebfwmPP59vf65zwzC7WlKOzVkq95aH3t1GQfAU0.mp4', { type: 'video' })}
                         type="video/mp4"
                     />
                 </video>
@@ -70,7 +71,7 @@ const InteriorSection = ({ onChefSelect }) => {
             <div className="parallax-wrap">
                 <div className="parallax-img-container">
                     <div className="interior-image-wrapper layer-1" style={{ width: '100%', height: '100%', position: 'relative' }}>
-                        <img src="/assets/Interior/interior_main.webp" alt="Kitchen Prep" className="parallax-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={getCloudinaryUrl('/assets/Interior/interior_main.webp')} alt="Kitchen Prep" className="parallax-img" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
 
                         {/* Chef Hotspot */}
                         <div

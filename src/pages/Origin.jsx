@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 import '../styles/components/Editorial.css';
 
 const Origin = () => {
@@ -12,7 +13,7 @@ const Origin = () => {
             <div className="editorial-split-layout">
                 {/* Left side fixed image */}
                 <div className="editorial-left">
-                    <img src="/assets/Scene/318437464_680876186963339_4782280235131555876_n.jpg" alt="Our Origin environment" />
+                    <img src={getCloudinaryUrl('/assets/Scene/318437464_680876186963339_4782280235131555876_n.jpg')} alt="Our Origin environment" />
                 </div>
 
                 {/* Right side scrolling content */}
@@ -72,7 +73,7 @@ const Origin = () => {
                                     </div>
                                 </div>
                                 <div className="editorial-row-image">
-                                    <img src={item.img} alt={item.title} />
+                                    <img src={getCloudinaryUrl(item.img)} alt={item.title} />
                                 </div>
                             </motion.div>
                         ))}

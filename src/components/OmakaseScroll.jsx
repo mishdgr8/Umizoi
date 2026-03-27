@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useHorizontalScroll } from '../hooks/useHorizontalScroll';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 
 const courses = [
     {
@@ -34,7 +35,7 @@ const OmakaseScroll = () => {
                 {courses.map((course, idx) => (
                     <div key={idx} className="course-panel">
                         <div className="panel-inner">
-                            <img src={course.img} alt={course.name} className="course-image" />
+                            <img src={getCloudinaryUrl(course.img)} alt={course.name} className="course-image" />
                             <div className="course-info">
                                 <span className="course-jp">{course.jp}</span>
                                 <h3 className="course-name">{course.name}</h3>

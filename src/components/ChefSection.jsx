@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useTextReveal } from '../hooks/useTextReveal';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 
 const ChefSection = ({ onChefSelect }) => {
     const sectionRef = useRef(null);
@@ -38,7 +39,7 @@ const ChefSection = ({ onChefSelect }) => {
                     onClick={onChefSelect}
                     style={{ cursor: 'none' }}
                 >
-                    <img src="/assets/Personnel/chef.webp" alt="Head Chef" className="chef-image" />
+                    <img src={getCloudinaryUrl('/assets/Personnel/chef.webp')} alt="Head Chef" className="chef-image" />
                     <div
                         className={`chef-bubble ${isHovered ? 'visible' : ''}`}
                         ref={bubbleRef}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 import '../styles/components/Editorial.css';
 
 const History = () => {
@@ -10,7 +11,7 @@ const History = () => {
         <div className="editorial-page">
             <div className="editorial-split-layout">
                 <div className="editorial-left">
-                    <img src="/assets/Personnel/318543873_666951394918316_1128040539212648344_n.jpg" alt="Chef working" />
+                    <img src={getCloudinaryUrl('/assets/Personnel/318543873_666951394918316_1128040539212648344_n.jpg')} alt="Chef working" />
                 </div>
 
                 <div className="editorial-right">
@@ -29,7 +30,7 @@ const History = () => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src="/assets/Personnel/608854380_18542390089031784_692730392710753357_n.jpg" alt="Chef detailing" />
+                            <img src={getCloudinaryUrl('/assets/Personnel/608854380_18542390089031784_692730392710753357_n.jpg')} alt="Chef detailing" />
                         </div>
                     </div>
 
@@ -43,7 +44,7 @@ const History = () => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src="/assets/Personnel/61b34e07bd90857668a2b94d8efecc26.jpg" alt="Waitstaff" />
+                            <img src={getCloudinaryUrl('/assets/Personnel/61b34e07bd90857668a2b94d8efecc26.jpg')} alt="Waitstaff" />
                         </div>
                     </div>
 
@@ -57,7 +58,7 @@ const History = () => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src="/assets/Scene/581276579_18542423137058383_8395012481738148664_n.jpg" alt="Restaurant Interior" />
+                            <img src={getCloudinaryUrl('/assets/Scene/581276579_18542423137058383_8395012481738148664_n.jpg')} alt="Restaurant Interior" />
                         </div>
                     </div>
                 </div>

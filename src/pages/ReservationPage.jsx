@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 import '../styles/components/Editorial.css';
 
 const ReservationPage = () => {
@@ -11,7 +12,7 @@ const ReservationPage = () => {
             <div className="editorial-split-layout">
                 {/* Left side fixed image */}
                 <div className="editorial-left">
-                    <img src="/assets/Scene/640914651_18567338425058383_4546137657352314648_n.jpg" alt="Dining Room" />
+                    <img src={getCloudinaryUrl('/assets/Scene/640914651_18567338425058383_4546137657352314648_n.jpg')} alt="Dining Room" />
                 </div>
 
                 {/* Right side form and scrolling content */}
@@ -66,7 +67,7 @@ const ReservationPage = () => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src="/assets/Scene/589735771_18544975486058383_3211966786323243175_n.jpg" alt="Interior Detail" />
+                            <img src={getCloudinaryUrl('/assets/Scene/589735771_18544975486058383_3211966786323243175_n.jpg')} alt="Interior Detail" />
                         </div>
                     </div>
                 </div>
