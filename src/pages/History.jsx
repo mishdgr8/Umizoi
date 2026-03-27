@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import EditorialNav from '../components/EditorialNav';
 import '../styles/components/Editorial.css';
 
 const History = () => {
@@ -9,8 +8,6 @@ const History = () => {
 
     return (
         <div className="editorial-page">
-            <EditorialNav />
-
             <div className="editorial-split-layout">
                 <div className="editorial-left">
                     <img src="/assets/Personnel/318543873_666951394918316_1128040539212648344_n.jpg" alt="Chef working" />

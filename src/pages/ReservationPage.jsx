@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import EditorialNav from '../components/EditorialNav';
 import '../styles/components/Editorial.css';
 
 const ReservationPage = () => {
@@ -9,20 +8,18 @@ const ReservationPage = () => {
 
     return (
         <div className="editorial-page">
-            <EditorialNav />
-
             <div className="editorial-split-layout">
                 {/* Left side fixed image */}
                 <div className="editorial-left">
-                    <img src="/assets/Scene/587292241_18544975495058383_4937885161994947411_n.jpg" alt="Hall interior" />
+                    <img src="/assets/Scene/640914651_18567338425058383_4546137657352314648_n.jpg" alt="Dining Room" />
                 </div>
 
                 {/* Right side form and scrolling content */}
                 <div className="editorial-right">
                     <div className="editorial-right-header">
-                        <h1>Hall interior</h1>
-                        <p>Our designer took into account our wishes and brought to life a design reflecting our concept and philosophy. We have created a unique interior with bright accents. You will feel really comfortable here.</p>
-                        <a href="/gallery" className="editorial-row-link" style={{ marginTop: '2rem' }}>GALLERY</a>
+                        <h1>Secure Your Journey</h1>
+                        <p>Experience the art of Omakase in our meticulously designed space. Every element is crafted to enhance your culinary exploration.</p>
+                        <a href="/gallery" className="editorial-row-link" style={{ marginTop: '2rem' }}>VIEW GALLERY</a>
                     </div>
 
                     <div className="editorial-form-container">
@@ -63,13 +60,13 @@ const ReservationPage = () => {
                         <div className="editorial-row-content">
                             <div className="editorial-row-date">PRIVATE</div>
                             <div className="editorial-row-text">
-                                <h2 className="editorial-row-title">Omakase Room</h2>
-                                <p className="editorial-row-desc">For an exclusive experience, our private Omakase room seats up to 8 guests with a dedicated chef preparing courses right before your eyes.</p>
+                                <h2 className="editorial-row-title">The Inner Sanctum</h2>
+                                <p className="editorial-row-desc">Our private dining quarters offer absolute discretion and a personalized menu curated for the most discerning palates.</p>
                                 <a href="#" className="editorial-row-link">ENQUIRE</a>
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src="/assets/Scene/638871003_18566605867058383_3717780193122053574_n.jpg" alt="Private room" />
+                            <img src="/assets/Scene/589735771_18544975486058383_3211966786323243175_n.jpg" alt="Interior Detail" />
                         </div>
                     </div>
                 </div>
@@ -79,3 +76,4 @@ const ReservationPage = () => {
 };
 
 export default ReservationPage;
+

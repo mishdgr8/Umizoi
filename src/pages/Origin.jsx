@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import EditorialNav from '../components/EditorialNav';
+import { motion } from 'framer-motion';
 import '../styles/components/Editorial.css';
 
 const Origin = () => {
@@ -9,8 +9,6 @@ const Origin = () => {
 
     return (
         <div className="editorial-page">
-            <EditorialNav />
-
             <div className="editorial-split-layout">
                 {/* Left side fixed image */}
                 <div className="editorial-left">
@@ -19,51 +17,65 @@ const Origin = () => {
 
                 {/* Right side scrolling content */}
                 <div className="editorial-right">
-                    <div className="editorial-right-header">
+                    <motion.div
+                        className="editorial-right-header"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                    >
                         <h1>Our Origin</h1>
                         <p>The sourcing of our ingredients is treated with as much respect as the cooking itself. We journey across Japan and Scandinavia to find the perfect producers.</p>
-                    </div>
+                    </motion.div>
 
-                    <div className="editorial-row">
-                        <div className="editorial-row-content">
-                            <div className="editorial-row-date">THE OCEAN</div>
-                            <div className="editorial-row-text">
-                                <h2 className="editorial-row-title">Line-caught purity</h2>
-                                <p className="editorial-row-desc">Every single fish is closely inspected at the markets before making its way to our kitchen. We prioritize line-caught, sustainable seafood from local fishermen.</p>
-                                <a href="/menu" className="editorial-row-link">VIEW MENU</a>
-                            </div>
-                        </div>
-                        <div className="editorial-row-image">
-                            <img src="/assets/Food/3bc1deb1d0b3b0ccba574f8cf973cd60.jpg" alt="Line caught sourcing" />
-                        </div>
-                    </div>
-
-                    <div className="editorial-row">
-                        <div className="editorial-row-content">
-                            <div className="editorial-row-date">THE EARTH</div>
-                            <div className="editorial-row-text">
-                                <h2 className="editorial-row-title">Biodynamic harvest</h2>
-                                <p className="editorial-row-desc">Our root vegetables and herbs are predominantly sourced from a network of small, biodynamic farms that respect the soil and the seasons.</p>
-                                <a href="/history" className="editorial-row-link">OUR STORY</a>
-                            </div>
-                        </div>
-                        <div className="editorial-row-image">
-                            <img src="/assets/Food/32f4d7c205fc0854718b7a76e3a3e831.jpg" alt="Agriculture harvest" />
-                        </div>
-                    </div>
-
-                    <div className="editorial-row">
-                        <div className="editorial-row-content">
-                            <div className="editorial-row-date">THE CRAFT</div>
-                            <div className="editorial-row-text">
-                                <h2 className="editorial-row-title">Artisan producers</h2>
-                                <p className="editorial-row-desc">From our soy sauce aged in wooden barrels to our hand-forged knives, we partner with artisans who have dedicated their lives to a single craft over generations.</p>
-                                <a href="/history" className="editorial-row-link">READ MORE</a>
-                            </div>
-                        </div>
-                        <div className="editorial-row-image">
-                            <img src="/assets/Food/8319a7ccb279aa13ed850da587b46076.jpg" alt="Artisan craftsmanship" />
-                        </div>
+                    <div className="editorial-row-container">
+                        {[
+                            {
+                                date: "THE OCEAN",
+                                title: "Line-caught purity",
+                                desc: "Every single fish is closely inspected at the markets before making its way to our kitchen. We prioritize line-caught, sustainable seafood from local fishermen.",
+                                link: "/menu",
+                                linkText: "VIEW MENU",
+                                img: "/assets/Food/3bc1deb1d0b3b0ccba574f8cf973cd60.jpg"
+                            },
+                            {
+                                date: "THE EARTH",
+                                title: "Biodynamic harvest",
+                                desc: "Our root vegetables and herbs are predominantly sourced from a network of small, biodynamic farms that respect the soil and the seasons.",
+                                link: "/history",
+                                linkText: "OUR STORY",
+                                img: "/assets/Food/32f4d7c205fc0854718b7a76e3a3e831.jpg"
+                            },
+                            {
+                                date: "THE CRAFT",
+                                title: "Artisan producers",
+                                desc: "From our soy sauce aged in wooden barrels to our hand-forged knives, we partner with artisans who have dedicated their lives to a single craft over generations.",
+                                link: "/history",
+                                linkText: "READ MORE",
+                                img: "/assets/Food/8319a7ccb279aa13ed850da587b46076.jpg"
+                            }
+                        ].map((item, index) => (
+                            <motion.div
+                                key={index}
+                                className="editorial-row"
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: index * 0.1 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                            >
+                                <div className="editorial-row-content">
+                                    <div className="editorial-row-date">{item.date}</div>
+                                    <div className="editorial-row-text">
+                                        <h2 className="editorial-row-title">{item.title}</h2>
+                                        <p className="editorial-row-desc">{item.desc}</p>
+                                        <a href={item.link} className="editorial-row-link">{item.linkText}</a>
+                                    </div>
+                                </div>
+                                <div className="editorial-row-image">
+                                    <img src={item.img} alt={item.title} />
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </div>

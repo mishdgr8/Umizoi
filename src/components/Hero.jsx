@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { useHeroAnimation } from '../hooks/useHeroAnimation';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 import '../styles/components/Hero.css';
 
 const playWoodTap = () => {
@@ -26,6 +28,23 @@ const playWoodTap = () => {
     } catch (e) { }
 };
 
+/** Shared nav content — single source of truth */
+const NavContent = ({ onToggleMenu, isMenuOpen }) => (
+    <>
+        <div className="logo">UMIZOI</div>
+        <ul className={`hero-nav-list ${isMenuOpen ? 'mobile-show' : ''}`}>
+            <li><Link to="/menu">Menu</Link></li>
+            <li><Link to="/origin">Origin</Link></li>
+            <li><Link to="/history">Story</Link></li>
+            <li><Link to="/reservation">Reservation</Link></li>
+        </ul>
+        <button className="hamburger" onClick={onToggleMenu} aria-label="Toggle menu">
+            <span className="hamburger-line"></span>
+            <span className="hamburger-line"></span>
+        </button>
+    </>
+);
+
 const Hero = ({ onChefSelect, onOmakaseSelect, onCellarSelect }) => {
     const heroRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -33,14 +52,18 @@ const Hero = ({ onChefSelect, onOmakaseSelect, onCellarSelect }) => {
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [audioEnabled, setAudioEnabled] = useState(true);
     const [touchedPoint, setTouchedPoint] = useState(null);
+    const [isPinned, setIsPinned] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useHeroAnimation(heroRef, titleRef, wrapperRef);
 
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+    // Parallax mousemove
     useEffect(() => {
         const handleMouseMove = (e) => {
             if (!wrapperRef.current || isTransitioning) return;
 
-            // disable parallax for mobile
             if (window.matchMedia('(max-width: 768px)').matches || window.matchMedia('(pointer: coarse)').matches) {
                 return;
             }
@@ -65,12 +88,32 @@ const Hero = ({ onChefSelect, onOmakaseSelect, onCellarSelect }) => {
             if (chef) chef.style.transform = `translate(${xPos * -midMove}px, ${yPos * -midMove}px)`;
 
             const plates = wrapperRef.current.querySelector('.hotspot-plates');
-            if (plates) plates.style.transform = `translate(${xPos * -foreMove}px, ${yPos * -foreMove}px) rotate(-15deg)`;
+            if (plates) plates.style.transform = `translate(${xPos * -foreMove}px, ${yPos * -foreMove}px)`;
         };
 
         window.addEventListener('mousemove', handleMouseMove);
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, [isTransitioning]);
+
+    // Pin detection — fires when the hero section's pinned zone ends
+    // The hero is pinned for 250vh total (100vh + 150% scroll distance).
+    // We pin the nav once the hero's ScrollTrigger pin is released.
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!heroRef.current) return;
+            // The hero section is pinned by ScrollTrigger. Its total scrollable
+            // distance is ~250vh (100vh natural + 150% pin extension).
+            // The nav should pin once we've scrolled past that entire zone.
+            const heroEl = heroRef.current;
+            const heroRect = heroEl.getBoundingClientRect();
+            // When the hero's bottom edge reaches the top of the viewport,
+            // the hero has been fully scrolled past — time to pin.
+            setIsPinned(heroRect.bottom <= 0);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const handleInteraction = (type) => {
         if (window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(max-width: 768px)').matches) {
@@ -90,85 +133,90 @@ const Hero = ({ onChefSelect, onOmakaseSelect, onCellarSelect }) => {
             if (type === 'omakase' && onOmakaseSelect) onOmakaseSelect();
             if (type === 'cellar' && onCellarSelect) onCellarSelect();
 
-            // Reset transition for crossfade sequence
             setTimeout(() => setIsTransitioning(false), 1000);
         }, 800);
     };
 
+    // The pinned nav — portaled to document.body to escape all transforms
+    const pinnedNav = isPinned
+        ? createPortal(
+            <nav className={`hero-nav hero-nav-portaled ${isMenuOpen ? 'menu-open' : ''}`} aria-label="Main navigation (pinned)">
+                <NavContent onToggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+            </nav>,
+            document.body
+        )
+        : null;
+
     return (
-        <section className={`hero ${isTransitioning ? 'nav-faded' : ''}`} id="hero" ref={heroRef}>
-            <div className="hero-sticky">
-                <div className="hero-bg-video">
-                    {/* Video source removed as it was referring to a local missing asset */}
-                    <div className="video-placeholder" style={{ width: '100%', height: '100%', background: '#0a0a0a' }}></div>
-                </div>
+        <>
+            {/* Portal: pinned nav rendered at document.body level */}
+            {pinnedNav}
 
-                <div className={`hero-image-wrapper ${isTransitioning ? 'hero-dimmed hero-clicked-zoom' : ''}`} ref={wrapperRef}
-                    style={isTransitioning ? { zIndex: 30 } : {}}>
-                    <img
-                        src="/assets/BG_iMG.webp"
-                        alt="Hero"
-                        className={`hero-image-bg ${isTransitioning ? 'hero-image-dimmed' : ''}`}
-                    />
+            <section className={`hero ${isTransitioning ? 'nav-faded' : ''}`} id="hero" ref={heroRef}>
+                <div className="hero-sticky">
+                    <div className="hero-bg-video">
+                        <div className="video-placeholder" style={{ width: '100%', height: '100%', background: '#0a0a0a' }}></div>
+                    </div>
 
-                    <nav className={`hero-nav ${isTransitioning ? 'nav-hidden' : ''}`}>
-                        <div className="logo">UMIZOI</div>
-                        <ul className="hero-nav-list">
-                            <li><Link to="/menu">Menu</Link></li>
-                            <li><Link to="/origin">Origin</Link></li>
-                            <li><Link to="/history">Story</Link></li>
-                            <li><Link to="/reservation">Reservation</Link></li>
-                        </ul>
-                    </nav>
+                    <div className={`hero-image-wrapper ${isTransitioning ? 'hero-dimmed hero-clicked-zoom' : ''}`} ref={wrapperRef}
+                        style={isTransitioning ? { zIndex: 30 } : {}}>
+                        <img
+                            src={getCloudinaryUrl('/assets/BG_iMG.webp')}
+                            alt="Hero"
+                            className={`hero-image-bg ${isTransitioning ? 'hero-image-dimmed' : ''}`}
+                        />
 
-                    {/* Interactive Layer */}
-                    <div className="hero-interactive-layer">
-                        {/* Chef Hotspot */}
-                        <div
-                            className={`hero-hotspot hotspot-chef ${touchedPoint === 'chef' ? 'active' : ''}`}
-                            onClick={() => handleInteraction('chef')}
-                            onMouseEnter={() => audioEnabled && playWoodTap()}
-                        >
-                            <div className="hero-bubble">
-                                <span>Meet the Chef</span>
-                                <div className="bubble-arrow"></div>
+                        {/* In-wrapper nav — visible while hero is in view, hidden when pinned */}
+                        <nav className={`hero-nav ${isTransitioning ? 'nav-hidden' : ''} ${isPinned ? 'nav-hidden' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
+                            <NavContent onToggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+                        </nav>
+
+                        {/* Interactive Layer */}
+                        <div className="hero-interactive-layer">
+                            <div
+                                className={`hero-hotspot hotspot-chef ${touchedPoint === 'chef' ? 'active' : ''}`}
+                                onClick={() => handleInteraction('chef')}
+                                onMouseEnter={() => audioEnabled && playWoodTap()}
+                            >
+                                <div className="hero-bubble">
+                                    <span>Meet the Chef</span>
+                                    <div className="bubble-arrow"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Cabinet Hotspot */}
-                        <div
-                            className={`hero-hotspot hotspot-cabinet ${touchedPoint === 'cellar' ? 'active' : ''}`}
-                            onClick={() => handleInteraction('cellar')}
-                            onMouseEnter={() => audioEnabled && playWoodTap()}
-                        >
-                            <div className="hero-bubble">
-                                <span>Explore Cellar</span>
-                                <div className="bubble-arrow"></div>
+                            <div
+                                className={`hero-hotspot hotspot-cabinet ${touchedPoint === 'cellar' ? 'active' : ''}`}
+                                onClick={() => handleInteraction('cellar')}
+                                onMouseEnter={() => audioEnabled && playWoodTap()}
+                            >
+                                <div className="hero-bubble">
+                                    <span>Explore Cellar</span>
+                                    <div className="bubble-arrow"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Plates Hotspot */}
-                        <div
-                            className={`hero-hotspot hotspot-plates ${touchedPoint === 'omakase' ? 'active' : ''}`}
-                            onClick={() => handleInteraction('omakase')}
-                            onMouseEnter={() => audioEnabled && playWoodTap()}
-                        >
-                            <div className="hero-bubble">
-                                <span>View Omakase</span>
-                                <div className="bubble-arrow"></div>
+                            <div
+                                className={`hero-hotspot hotspot-plates ${touchedPoint === 'omakase' ? 'active' : ''}`}
+                                onClick={() => handleInteraction('omakase')}
+                                onMouseEnter={() => audioEnabled && playWoodTap()}
+                            >
+                                <div className="hero-bubble">
+                                    <span>View Omakase</span>
+                                    <div className="bubble-arrow"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <button
-                    className="hero-audio-toggle"
-                    onClick={() => setAudioEnabled(!audioEnabled)}
-                >
-                    {audioEnabled ? 'Audio: On' : 'Audio: Off'}
-                </button>
-            </div>
-        </section>
+                    <button
+                        className="hero-audio-toggle desktop-only"
+                        onClick={() => setAudioEnabled(!audioEnabled)}
+                    >
+                        {audioEnabled ? 'Audio: On' : 'Audio: Off'}
+                    </button>
+                </div>
+            </section>
+        </>
     );
 };
 

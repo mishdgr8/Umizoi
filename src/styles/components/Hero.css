@@ -69,19 +69,55 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2rem 4rem;
+    padding: 1.5rem 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 20;
-    mix-blend-mode: difference;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     color: white;
-    transition: opacity 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* Portaled pinned nav — compound selector for higher specificity over .hero-nav */
+.hero-nav.hero-nav-portaled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    padding: 0.8rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(48px) saturate(150%);
+    -webkit-backdrop-filter: blur(48px) saturate(150%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+    animation: slideDownNav 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDownNav {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 .nav-hidden {
     opacity: 0 !important;
     pointer-events: none;
+    transform: translateY(-20px);
 }
 
 .hero-nav .logo {
@@ -121,17 +157,21 @@
 
 .hero-hotspot {
     position: absolute;
-    pointer-events: auto;
-    /* Catch clicks */
+    pointer-events: none;
+    /* Inaccessible until zoomed in */
     cursor: pointer;
-    /* Soft glow */
-    background: radial-gradient(circle, rgba(198, 166, 100, 0.08) 0%, rgba(198, 166, 100, 0) 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
     opacity: 0;
-    transition: opacity 0.4s ease-out, transform 0.1s ease-out;
+    transition: opacity 0.4s ease-out, transform 0.1s ease-out, background 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
     will-change: transform, opacity;
+}
+
+.hero.hero-zoomed-in .hero-hotspot {
+    pointer-events: auto;
+    /* Enable when 100% viewport */
 }
 
 .hero-hotspot:hover,
@@ -139,13 +179,13 @@
     opacity: 1;
 }
 
-/* POSITIONS */
+/* POSITIONS (Straightened) */
 .hotspot-chef {
     top: 15%;
     left: 50%;
     width: 18vw;
     height: 50vh;
-    border-radius: 50% 50% 0 0;
+    border-radius: 8px;
 }
 
 .hotspot-cabinet {
@@ -153,7 +193,7 @@
     left: 70%;
     width: 25vw;
     height: 70vh;
-    border-radius: 20px;
+    border-radius: 8px;
 }
 
 .hotspot-plates {
@@ -161,8 +201,8 @@
     left: 20%;
     width: 40vw;
     height: 35vh;
-    border-radius: 50%;
-    transform: rotate(-15deg);
+    border-radius: 8px;
+    /* Rotation removed */
 }
 
 /* BUBBLES */
@@ -174,26 +214,29 @@
     opacity: 0;
     pointer-events: none;
 
-    /* Glassmorphism */
-    background: rgba(255, 255, 240, 0.12);
-    /* translucent ivory */
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(198, 166, 100, 0.4);
-    /* thin gold line */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    /* Enhanced Glassmorphism (V4 - High Contrast) */
+    background: rgba(10, 10, 10, 0.85);
+    /* Very opaque for absolute text clarity */
+    backdrop-filter: blur(80px) saturate(180%);
+    -webkit-backdrop-filter: blur(80px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
 
-    padding: 14px 28px;
-    border-radius: 40px;
+    padding: 18px 40px;
+    border-radius: 12px;
 
     font-family: "Playfair Display", "Canela", serif;
     font-size: 0.95rem;
-    letter-spacing: 0.06em;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     color: #fff;
     text-transform: uppercase;
+    text-align: center;
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 6px;
 
@@ -214,8 +257,8 @@
 .bubble-arrow {
     width: 6px;
     height: 6px;
-    border-right: 1px solid rgba(198, 166, 100, 0.8);
-    border-bottom: 1px solid rgba(198, 166, 100, 0.8);
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     transform: rotate(45deg);
     margin-top: 2px;
     opacity: 0.9;

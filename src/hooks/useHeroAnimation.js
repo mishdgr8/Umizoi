@@ -45,6 +45,13 @@ export const useHeroAnimation = (heroRef, titleRef, wrapperRef) => {
                     pin: true,
                     anticipatePin: 1,
                     invalidateOnRefresh: true,
+                    onUpdate: (self) => {
+                        if (self.progress >= 0.99) {
+                            heroRef.current.classList.add('hero-zoomed-in');
+                        } else {
+                            heroRef.current.classList.remove('hero-zoomed-in');
+                        }
+                    }
                 }
             });
 

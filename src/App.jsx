@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from 'lenis';
 import gsap from 'gsap';
@@ -7,12 +7,22 @@ import Loader from './components/Loader';
 import Footer from './components/Footer';
 import Cursor from './components/Cursor';
 import MeetingChef from './components/MeetingChef';
-import Home from './pages/Home';
-import Gallery from './pages/Gallery';
-import Menu from './pages/Menu';
-import Origin from './pages/Origin';
-import History from './pages/History';
-import ReservationPage from './pages/ReservationPage';
+import EditorialNav from './components/EditorialNav';
+
+// Lazy load pages for smaller initial chunk size
+const Home = lazy(() => import('./pages/Home'));
+const Gallery = lazy(() => import('./pages/Gallery'));
+const Menu = lazy(() => import('./pages/Menu'));
+const Origin = lazy(() => import('./pages/Origin'));
+const History = lazy(() => import('./pages/History'));
+const ReservationPage = lazy(() => import('./pages/ReservationPage'));
+
+// Simple loading fallback
+const PageLoader = () => (
+  <div style={{ height: '100vh', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div className="loader-logo" style={{ color: '#fff', fontSize: '1rem', letterSpacing: '0.2em', opacity: 0.5 }}>LOADING</div>
+  </div>
+);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +61,8 @@ function App() {
       lenis.destroy();
       gsap.ticker.remove(lenis.raf);
     };
-  }, []);
+  }, [location.pathname]);
+
 
   useEffect(() => {
     if (lenisInstance) {
@@ -97,18 +108,26 @@ function App() {
       <Cursor />
       <MeetingChef isOpen={isChefDetailOpen} onClose={() => setIsChefDetailOpen(false)} />
 
+      {location.pathname !== '/' && (
+        <div className="global-nav-wrapper is-pinned">
+          <EditorialNav />
+        </div>
+      )}
+
       {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
 
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <Routes>
-            <Route path="/" element={<Home scrollToSection={scrollToSection} setIsChefDetailOpen={setIsChefDetailOpen} />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/origin" element={<Origin />} />
-            <Route path="/history" element={<History />} />
-            <Route path="/reservation" element={<ReservationPage />} />
-          </Routes>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home scrollToSection={scrollToSection} setIsChefDetailOpen={setIsChefDetailOpen} />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/origin" element={<Origin />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/reservation" element={<ReservationPage />} />
+            </Routes>
+          </Suspense>
           <Footer />
         </div>
       </div>

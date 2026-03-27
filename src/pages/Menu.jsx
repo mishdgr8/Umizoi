@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import EditorialNav from '../components/EditorialNav';
+import { motion } from 'framer-motion';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 import '../styles/components/Editorial.css';
 
 const specials = [
@@ -149,6 +150,22 @@ const teas = [
     }
 ];
 
+const foodImages = [
+    { src: "/assets/Food/589908876_18542390116031784_4422588814190806625_n.jpg", alt: "Signature Sushi" },
+    { src: "/assets/Food/607009435_18542390104031784_2320596697962062262_n.jpg", alt: "Omakase Piece" },
+    { src: "/assets/Food/318588163_1523867858082990_4788944527157422100_n.jpg", alt: "Artisanal Plate" },
+    { src: "/assets/Food/641659012_18566605849058383_4604519984093328029_n.jpg", alt: "Fresh Sashimi" },
+    { src: "/assets/Food/32f4d7c205fc0854718b7a76e3a3e831.jpg", alt: "Culinary Art" },
+    { src: "/assets/Food/075c8e76050eeb3cf3c40f2157bcd389.jpg", alt: "Gourmet Detail" },
+    { src: "/assets/Food/15c0143c39856737bcaf0e1588058b2e.jpg", alt: "Nigiri Close-up" },
+    { src: "/assets/Food/3bc1deb1d0b3b0ccba574f8cf973cd60.jpg", alt: "Chef's Selection" },
+    { src: "/assets/Food/637691860_18566605900058383_1696038193588162611_n.jpg", alt: "Seasonal Specialty" },
+    { src: "/assets/Food/641178bcda86cdbfd0a19adab1b032b5.jpg", alt: "Dessert Art" },
+    { src: "/assets/Food/8319a7ccb279aa13ed850da587b46076.jpg", alt: "Fine Dining" },
+    { src: "/assets/Food/32f4d7c205fc0854718b7a76e3a3e831.jpg", alt: "Sashimi Arrangement" },
+    { src: "/assets/Food/589908876_18542390116031784_4422588814190806625_n.jpg", alt: "The Final Course" },
+];
+
 const Menu = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -156,12 +173,23 @@ const Menu = () => {
 
     return (
         <div className="editorial-page">
-            <EditorialNav />
-
             <div className="editorial-split-layout">
-                {/* Left side fixed image */}
+                {/* Left side scrolling images */}
                 <div className="editorial-left">
-                    <img src="/assets/Interior/interior_main.webp" alt="Menu atmosphere" />
+                    <div className="editorial-left-gallery">
+                        {foodImages.map((img, index) => (
+                            <motion.div
+                                key={`${img.src}-${index}`}
+                                className="gallery-img-wrapper"
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                viewport={{ once: true, margin: "-100px" }}
+                            >
+                                <img src={getCloudinaryUrl(img.src)} alt={img.alt} loading="lazy" />
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Right side scrolling content */}
@@ -172,8 +200,15 @@ const Menu = () => {
                     </div>
 
                     <div className="menu-section-divider">JAPANESE SPECIALS</div>
-                    {specials.map((item) => (
-                        <div key={item.id} className="editorial-row">
+                    {specials.map((item, index) => (
+                        <motion.div
+                            key={item.id}
+                            className="editorial-row"
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                            viewport={{ once: true, margin: "-50px" }}
+                        >
                             <div className="editorial-row-content">
                                 <div className="editorial-row-date">SPECIAL</div>
                                 <div className="editorial-row-text">
@@ -183,14 +218,21 @@ const Menu = () => {
                                 </div>
                             </div>
                             <div className="editorial-row-image">
-                                <img src={item.img} alt={item.title} />
+                                <img src={getCloudinaryUrl(item.img)} alt={item.title} loading="lazy" />
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
 
                     <div className="menu-section-divider">DRINKS & COCKTAILS</div>
-                    {drinks.map((item) => (
-                        <div key={item.id} className="editorial-row">
+                    {drinks.map((item, index) => (
+                        <motion.div
+                            key={item.id}
+                            className="editorial-row"
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                            viewport={{ once: true, margin: "-50px" }}
+                        >
                             <div className="editorial-row-content">
                                 <div className="editorial-row-date">HOUSE CRAFT</div>
                                 <div className="editorial-row-text">
@@ -200,14 +242,21 @@ const Menu = () => {
                                 </div>
                             </div>
                             <div className="editorial-row-image">
-                                <img src={item.img} alt={item.title} />
+                                <img src={getCloudinaryUrl(item.img)} alt={item.title} loading="lazy" />
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
 
                     <div className="menu-section-divider">PREMIUM TEAS</div>
-                    {teas.map((item) => (
-                        <div key={item.id} className="editorial-row">
+                    {teas.map((item, index) => (
+                        <motion.div
+                            key={item.id}
+                            className="editorial-row"
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+                            viewport={{ once: true, margin: "-50px" }}
+                        >
                             <div className="editorial-row-content">
                                 <div className="editorial-row-date">TRADITIONAL</div>
                                 <div className="editorial-row-text">
@@ -217,9 +266,9 @@ const Menu = () => {
                                 </div>
                             </div>
                             <div className="editorial-row-image">
-                                <img src={item.img} alt={item.title} />
+                                <img src={getCloudinaryUrl(item.img)} alt={item.title} loading="lazy" />
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

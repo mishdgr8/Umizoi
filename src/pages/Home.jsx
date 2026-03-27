@@ -1,6 +1,8 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 import '../styles/components/Editorial.css';
 
 const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
@@ -13,9 +15,30 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
             />
 
             <div className="editorial-split-layout">
-                {/* Left side fixed image */}
+                {/* Left side scrolling gallery */}
                 <div className="editorial-left">
-                    <img src="/assets/Interior/interior_main.webp" alt="Umizoi Interior" />
+                    <div className="editorial-left-gallery">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="gallery-img-wrapper"
+                            style={{ height: '100vh', padding: 0 }}
+                        >
+                            <img src={getCloudinaryUrl('/assets/Interior/interior_main.webp')} alt="Umizoi Interior" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="gallery-img-wrapper"
+                            style={{ height: '80vh', padding: 0 }}
+                        >
+                            <img src={getCloudinaryUrl('/assets/Personnel/b56b48da1675160e921ace8b2c97b29a.jpg')} alt="Our Team" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                        </motion.div>
+                    </div>
                 </div>
 
                 {/* Right side scrolling content mimicking the underlying subcomponents */}
@@ -35,7 +58,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src="/assets/Food/uni.webp" alt="Hokkaido Uni" />
+                            <img src={getCloudinaryUrl('/assets/Food/uni.webp')} alt="Hokkaido Uni" loading="lazy" />
                         </div>
                     </div>
 
@@ -55,7 +78,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src="/assets/Personnel/chef.webp" alt="Head Chef" />
+                            <img src={getCloudinaryUrl('/assets/Personnel/chef.webp')} alt="Head Chef" loading="lazy" />
                         </div>
                     </div>
 
@@ -69,7 +92,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src="/assets/Interior/interior_main.webp" alt="Restaurant Interior" />
+                            <img src={getCloudinaryUrl('/assets/Interior/interior_main.webp')} alt="Restaurant Interior" loading="lazy" />
                         </div>
                     </div>
 
