@@ -155,7 +155,18 @@ const Hero = ({ onChefSelect, onOmakaseSelect, onCellarSelect }) => {
             <section className={`hero ${isTransitioning ? 'nav-faded' : ''}`} id="hero" ref={heroRef}>
                 <div className="hero-sticky">
                     <div className="hero-bg-video">
-                        <div className="video-placeholder" style={{ width: '100%', height: '100%', background: '#0a0a0a' }}></div>
+                        <video
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="video-bg"
+                        >
+                            <source
+                                src={getCloudinaryUrl('/assets/Scene/AQMwXuM0r9XsAs6qKP2AtKE93Z7Avx1yGyOTfkWF4l_W8pf0x4U5wqcYSRU9gfG2ebfwmPP59vf65zwzC7WlKOzVkq95aH3t1GQfAU0.mp4', { type: 'video' })}
+                                type="video/mp4"
+                            />
+                        </video>
                     </div>
 
                     <div className={`hero-image-wrapper ${isTransitioning ? 'hero-dimmed hero-clicked-zoom' : ''}`} ref={wrapperRef}
