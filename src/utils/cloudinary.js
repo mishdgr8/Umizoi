@@ -1,5 +1,5 @@
-const CLOUDINARY_CLOUD_NAME = 'dzfrrcacc';
-const PROD_URL = 'https://umizoi.pages.dev'; // Update with your actual domain once deployed
+const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME || 'dzfrrcacc';
+const PROD_URL = import.meta.env.VITE_PROD_URL || 'https://umizoi.pages.dev'; // Default to pages.dev if not specified
 
 /**
  * Transforms a local asset path into a Cloudinary Fetch URL
