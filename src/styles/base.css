@@ -29,7 +29,13 @@ body {
     font-family: var(--font-body);
     font-weight: 200;
     overflow-x: hidden;
-    cursor: none;
+    /* cursor: none; removed to prevent hiding cursor if JS fails */
+}
+
+/* Custom Cursor enabled only when JS is running */
+.has-custom-cursor,
+.has-custom-cursor body {
+    cursor: none !important;
 }
 
 /* Custom Cursor */

@@ -6,6 +6,10 @@ const Cursor = () => {
 
     useEffect(() => {
         const cursor = cursorRef.current;
+        if (!cursor) return;
+
+        // Hide default cursor only when this component is active
+        document.documentElement.classList.add('has-custom-cursor');
 
         const moveCursor = (e) => {
             gsap.to(cursor, {
@@ -21,31 +25,34 @@ const Cursor = () => {
 
         window.addEventListener('mousemove', moveCursor);
 
-        const interactiveElements = document.querySelectorAll('a, button, .course-panel');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', handleHover);
-            el.addEventListener('mouseleave', handleUnhover);
-        });
+        // More robust interactive element detection for SPA
+        const attachHoverListeners = () => {
+            const interactiveElements = document.querySelectorAll('a, button, .course-panel');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', handleHover);
+                el.addEventListener('mouseleave', handleUnhover);
+            });
 
-        const hideCursorElements = document.querySelectorAll('.chef-image-wrap, .chef-hotspot');
-        const handleHide = () => cursor.style.display = 'none';
-        const handleShow = () => cursor.style.display = 'block';
+            const hideCursorElements = document.querySelectorAll('.chef-image-wrap, .chef-hotspot');
+            const handleHide = () => cursor.style.display = 'none';
+            const handleShow = () => cursor.style.display = 'block';
 
-        hideCursorElements.forEach(el => {
-            el.addEventListener('mouseenter', handleHide);
-            el.addEventListener('mouseleave', handleShow);
-        });
+            hideCursorElements.forEach(el => {
+                el.addEventListener('mouseenter', handleHide);
+                el.addEventListener('mouseleave', handleShow);
+            });
+        };
+
+        // Initial attach
+        attachHoverListeners();
+
+        // Re-attach periodically for lazily loaded content
+        const interval = setInterval(attachHoverListeners, 2000);
 
         return () => {
             window.removeEventListener('mousemove', moveCursor);
-            interactiveElements.forEach(el => {
-                el.removeEventListener('mouseenter', handleHover);
-                el.removeEventListener('mouseleave', handleUnhover);
-            });
-            hideCursorElements.forEach(el => {
-                el.removeEventListener('mouseenter', handleHide);
-                el.removeEventListener('mouseleave', handleShow);
-            });
+            document.documentElement.classList.remove('has-custom-cursor');
+            clearInterval(interval);
         };
     }, []);
 

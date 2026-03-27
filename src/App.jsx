@@ -50,15 +50,18 @@ function App() {
     // Sync ScrollTrigger with Lenis
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    // Named function to ensure we can remove it from ticker
+    const raf = (time) => {
       lenis.raf(time * 1000);
-    });
+    };
 
+    gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
+      gsap.ticker.remove(raf);
+      ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, [location.pathname]);
 
