@@ -38,7 +38,7 @@ const MeetingChef = ({ isOpen, onClose }) => {
             <button className="close-chef-page" onClick={onClose}>CLOSE</button>
             <div className="chef-page-content">
                 <div className="chef-portrait-large">
-                    <img src={getCloudinaryUrl('/assets/Personnel/chef.webp')} alt="Chef Portrait" />
+                    <img src={getCloudinaryUrl('/assets/Personnel/318543873_666951394918316_1128040539212648344_n.jpg')} alt="Chef Shigeru" />
                 </div>
                 <div className="chef-story">
                     <span className="chef-subtitle">BEYOND THE KNIFE</span>

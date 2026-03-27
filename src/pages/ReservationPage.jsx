@@ -15,8 +15,9 @@ const ReservationPage = () => {
                 <div className="editorial-left">
                     <div className="editorial-left-gallery">
                         {[
-                            { src: '/assets/Scene/640914651_18567338425058383_4546137657352314648_n.jpg', alt: "Dining Room" },
-                            { src: '/assets/Scene/589735771_18544975486058383_3211966786323243175_n.jpg', alt: "Interior Detail" },
+                            { src: '/assets/Scene/640914651_18567338425058383_4546137657352314648_n.jpg', alt: "Our main space" },
+                            { src: '/assets/aba50a2cf342b722fbd9bbd43f99c36e.jpg', alt: "Dining Room" },
+                            { src: '/assets/Personnel/638896096_18566605915058383_6785274997338967705_n.jpg', alt: "Craftsmanship" },
                         ].map((img, i) => (
                             <motion.div
                                 key={i}

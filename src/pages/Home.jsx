@@ -78,7 +78,7 @@ const Home = ({ scrollToSection, setIsChefDetailOpen }) => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src={getCloudinaryUrl('/assets/Personnel/chef.webp')} alt="Head Chef" loading="lazy" />
+                            <img src={getCloudinaryUrl('/assets/Personnel/318543873_666951394918316_1128040539212648344_n.jpg')} alt="Head Chef Shigeru" loading="lazy" />
                         </div>
                     </div>
 
