@@ -11,9 +11,27 @@ const Origin = () => {
     return (
         <div className="editorial-page">
             <div className="editorial-split-layout">
-                {/* Left side fixed image */}
+                {/* Left side fixed image gallery */}
                 <div className="editorial-left">
-                    <img src={getCloudinaryUrl('/assets/Scene/318437464_680876186963339_4782280235131555876_n.jpg')} alt="Our Origin environment" />
+                    <div className="editorial-left-gallery">
+                        {[
+                            { src: '/assets/Scene/318437464_680876186963339_4782280235131555876_n.jpg', alt: "Our main space" },
+                            { src: '/assets/Food/uni.webp', alt: "Our Hokkaido Uni" },
+                            { src: '/assets/Food/hotate.webp', alt: "Fresh Scallops" },
+                            { src: '/assets/Scene/587783447_18544975474058383_6044601999645993100_n.jpg', alt: "Atmosphere" },
+                        ].map((img, i) => (
+                            <motion.div
+                                key={i}
+                                className="gallery-img-wrapper"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 1.2, ease: "easeOut" }}
+                                viewport={{ once: true }}
+                            >
+                                <img src={getCloudinaryUrl(img.src)} alt={img.alt} />
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Right side scrolling content */}

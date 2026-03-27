@@ -12,7 +12,25 @@ const ReservationPage = () => {
             <div className="editorial-split-layout">
                 {/* Left side fixed image */}
                 <div className="editorial-left">
-                    <img src={getCloudinaryUrl('/assets/Scene/640914651_18567338425058383_4546137657352314648_n.jpg')} alt="Dining Room" />
+                    <div className="editorial-left-gallery">
+                        {[
+                            { src: '/assets/Scene/640914651_18567338425058383_4546137657352314648_n.jpg', alt: "Dining Room" },
+                            { src: '/assets/Scene/589735771_18544975486058383_3211966786323243175_n.jpg', alt: "Interior Detail" },
+                            { src: '/assets/Scene/590805520_18544975456058383_43372525812490079_n.jpg', alt: "Service Area" },
+                            { src: '/assets/Scene/639544079_18567338626058383_971906583159803541_n.jpg', alt: "Ambience" },
+                        ].map((img, i) => (
+                            <motion.div
+                                key={i}
+                                className="gallery-img-wrapper"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 1.2, ease: "easeOut" }}
+                                viewport={{ once: true }}
+                            >
+                                <img src={getCloudinaryUrl(img.src)} alt={img.alt} />
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Right side form and scrolling content */}
