@@ -88,7 +88,13 @@ const Gallery = () => {
                                 backgroundColor: '#111',
                                 border: '1px solid rgba(255,255,255,0.05)'
                             }}>
-                                <img src={getCloudinaryUrl(item.img)} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)' }} />
+                                <img
+                                    src={getCloudinaryUrl(item.img, { width: 800 })}
+                                    alt={item.title}
+                                    loading="lazy"
+                                    decoding="async"
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)' }}
+                                />
                             </div>
                             <h3 style={{
                                 fontSize: '1.8rem',

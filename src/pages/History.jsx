@@ -25,7 +25,7 @@ const History = () => {
                                 transition={{ duration: 1.2, ease: "easeOut" }}
                                 viewport={{ once: true }}
                             >
-                                <img src={getCloudinaryUrl(img.src)} alt={img.alt} />
+                                <img src={getCloudinaryUrl(img.src, { width: 1000 })} alt={img.alt} loading="lazy" decoding="async" />
                             </motion.div>
                         ))}
                     </div>
@@ -47,7 +47,7 @@ const History = () => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src={getCloudinaryUrl('/assets/Personnel/608854380_18542390089031784_692730392710753357_n.jpg')} alt="Chef detailing" />
+                            <img src={getCloudinaryUrl('/assets/Personnel/608854380_18542390089031784_692730392710753357_n.jpg', { width: 800 })} alt="Chef detailing" loading="lazy" decoding="async" />
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@ const History = () => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src={getCloudinaryUrl('/assets/Personnel/61b34e07bd90857668a2b94d8efecc26.jpg')} alt="Waitstaff" />
+                            <img src={getCloudinaryUrl('/assets/Personnel/61b34e07bd90857668a2b94d8efecc26.jpg', { width: 800 })} alt="Waitstaff" loading="lazy" decoding="async" />
                         </div>
                     </div>
 
@@ -75,7 +75,7 @@ const History = () => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src={getCloudinaryUrl('/assets/Scene/581276579_18542423137058383_8395012481738148664_n.jpg')} alt="Restaurant Interior" />
+                            <img src={getCloudinaryUrl('/assets/Scene/581276579_18542423137058383_8395012481738148664_n.jpg', { width: 800 })} alt="Restaurant Interior" loading="lazy" decoding="async" />
                         </div>
                     </div>
                 </div>

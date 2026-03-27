@@ -27,7 +27,7 @@ const ReservationPage = () => {
                                 transition={{ duration: 1.2, ease: "easeOut" }}
                                 viewport={{ once: true }}
                             >
-                                <img src={getCloudinaryUrl(img.src)} alt={img.alt} />
+                                <img src={getCloudinaryUrl(img.src, { width: 1000 })} alt={img.alt} loading="lazy" decoding="async" />
                             </motion.div>
                         ))}
                     </div>
@@ -85,7 +85,7 @@ const ReservationPage = () => {
                             </div>
                         </div>
                         <div className="editorial-row-image">
-                            <img src={getCloudinaryUrl('/assets/Scene/589735771_18544975486058383_3211966786323243175_n.jpg')} alt="Interior Detail" />
+                            <img src={getCloudinaryUrl('/assets/Scene/589735771_18544975486058383_3211966786323243175_n.jpg', { width: 800 })} alt="Interior Detail" loading="lazy" decoding="async" />
                         </div>
                     </div>
                 </div>

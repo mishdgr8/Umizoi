@@ -173,9 +173,11 @@ const Hero = ({ onChefSelect, onOmakaseSelect, onCellarSelect }) => {
                     <div className={`hero-image-wrapper ${isTransitioning ? 'hero-dimmed hero-clicked-zoom' : ''}`} ref={wrapperRef}
                         style={isTransitioning ? { zIndex: 30 } : {}}>
                         <img
-                            src={getCloudinaryUrl('/assets/BG_iMG.webp')}
+                            src={getCloudinaryUrl('/assets/BG_iMG.webp', { width: 1920 })}
                             alt="Hero"
                             className={`hero-image-bg ${isTransitioning ? 'hero-image-dimmed' : ''}`}
+                            fetchpriority="high"
+                            decoding="async"
                         />
 
                         {/* In-wrapper nav — visible while hero is in view, hidden when pinned */}

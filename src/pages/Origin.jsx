@@ -26,7 +26,7 @@ const Origin = () => {
                                 transition={{ duration: 1.2, ease: "easeOut" }}
                                 viewport={{ once: true }}
                             >
-                                <img src={getCloudinaryUrl(img.src)} alt={img.alt} />
+                                <img src={getCloudinaryUrl(img.src, { width: 1000 })} alt={img.alt} loading="lazy" decoding="async" />
                             </motion.div>
                         ))}
                     </div>
@@ -89,7 +89,7 @@ const Origin = () => {
                                     </div>
                                 </div>
                                 <div className="editorial-row-image">
-                                    <img src={getCloudinaryUrl(item.img)} alt={item.title} />
+                                    <img src={getCloudinaryUrl(item.img, { width: 800 })} alt={item.title} loading="lazy" decoding="async" />
                                 </div>
                             </motion.div>
                         ))}
