@@ -70,44 +70,7 @@ section {
 }
 
 
-
-.hero-nav {
-    position: absolute;
-    top: 3rem;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 4rem;
-    z-index: 10;
-}
-
-.logo {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    letter-spacing: 0.8rem;
-    font-weight: 300;
-}
-
-.hero-nav-list {
-    display: flex;
-    gap: 4rem;
-    list-style: none;
-}
-
-.hero-nav-list a {
-    font-size: 0.95rem;
-    letter-spacing: 0.35rem;
-    text-transform: uppercase;
-    color: var(--text-color);
-    opacity: 0.7;
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.hero-nav-list a:hover {
-    opacity: 1;
-}
+/* Navigation styles are now handled in component-specific CSS files */
 
 .hero-header {
     text-align: center;

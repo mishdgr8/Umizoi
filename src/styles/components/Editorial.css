@@ -88,7 +88,7 @@
     transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .editorial-nav {
         padding: 0 1.5rem;
         height: 50px;
@@ -386,7 +386,7 @@
    Responsive (Mobile First Overrides)
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .desktop-only {
         display: none !important;
     }
@@ -543,9 +543,14 @@
     }
 
     .hero-nav {
+        top: 0 !important;
         padding: 0 1.5rem !important;
         height: 60px !important;
+        display: flex !important;
+        align-items: center !important;
         justify-content: space-between !important;
+        background: transparent !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
     .hero-nav-list {

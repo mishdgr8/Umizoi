@@ -38,7 +38,7 @@
     z-index: 2;
     overflow: hidden;
     border-radius: 4px;
-    background: #111;
+    background: transparent;
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease-in-out;
 }
 
@@ -285,7 +285,7 @@
 }
 
 /* MOBILE ADAPTATION */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .hero-hotspot {
         animation: mobilePulse 6s infinite ease-in-out;
     }
