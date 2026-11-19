@@ -1,3 +1,11 @@
+**#Deployment Link**
+
+
+Umizoi - https://umizoi.pages.dev/
+
+
+Platform - Cloudflare pages
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
